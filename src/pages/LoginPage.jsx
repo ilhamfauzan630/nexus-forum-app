@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoEarthOutline } from 'react-icons/io5';
+import { IoSparklesOutline  } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginInput from '../components/LoginInput';
@@ -17,8 +17,8 @@ function LoginPage() {
     <section className="login-page">
       <header className="login-page__hero">
         <div className="auth-hero__content">
-          <h1><IoEarthOutline /></h1>
-          <p>Open Space</p>
+          <h1><IoSparklesOutline  /></h1>
+          <p>Nexus Forum</p>
         </div>
       </header>
       <article className="login-page__main">
@@ -30,7 +30,7 @@ function LoginPage() {
           ,
           {' '}
           <br />
-          Through Open Space.
+          Through Nexus Forum.
         </h2>
 
         <LoginInput login={onLogin} />

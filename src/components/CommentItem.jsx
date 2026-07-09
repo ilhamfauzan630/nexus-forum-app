@@ -7,6 +7,8 @@ import {
   FaThumbsDown,
 } from 'react-icons/fa';
 
+import { postedAt } from '../utils';
+
 function CommentItem({
   id,
   content,
@@ -45,7 +47,7 @@ function CommentItem({
       <div className="comment-item__content">
         <header className="comment-item__header">
           <p className="comment-item__name">{owner.name}</p>
-          <small className="comment-item__created-at">{createdAt}</small>
+          <small className="comment-item__created-at">{postedAt(createdAt)}</small>
         </header>
 
         <p className="comment-item__body">{content}</p>

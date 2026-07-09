@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoEarthOutline } from 'react-icons/io5';
+import { IoSparklesOutline } from 'react-icons/io5';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import RegisterInput from '../components/RegisterInput';
@@ -19,8 +19,8 @@ function RegisterPage() {
     <section className="register-page">
       <header className="register-page__hero">
         <div className="auth-hero__content">
-          <h1><IoEarthOutline /></h1>
-          <p>Open Space</p>
+          <h1><IoSparklesOutline /></h1>
+          <p>Nexus Forum</p>
         </div>
       </header>
       <article className="register-page__main">
