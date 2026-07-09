@@ -62,6 +62,11 @@ function HomePage() {
 
   return (
     <section className="home-page">
+      <header className="home-page__header">
+        <p className="page-eyebrow">Community feed</p>
+        <h1>Home</h1>
+      </header>
+
       <ThreadInput addThread={onAddThread} />
 
       <ThreadsList

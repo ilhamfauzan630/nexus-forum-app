@@ -18,13 +18,17 @@ function RegisterPage() {
   return (
     <section className="register-page">
       <header className="register-page__hero">
-        <h1><IoEarthOutline /></h1>
+        <div className="auth-hero__content">
+          <h1><IoEarthOutline /></h1>
+          <p>Open Space</p>
+        </div>
       </header>
       <article className="register-page__main">
+        <p className="auth-page__eyebrow">Join the conversation</p>
         <h2>Create your account</h2>
         <RegisterInput register={onRegister} />
 
-        <p>
+        <p className="auth-page__switch">
           Already have an account?
           {' '}
           <Link to="/">Login</Link>

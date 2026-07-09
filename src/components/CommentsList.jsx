@@ -12,7 +12,7 @@ function CommentsList({
 }) {
   return (
     <div className="comment-list">
-      <h3>
+      <h3 className="comment-list__title">
         Komentar (
         {comments.length}
         )

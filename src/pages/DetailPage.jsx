@@ -92,16 +92,18 @@ function DetailPage() {
         neutralVoteThread={onNeutralVoteThread}
       />
 
-      <CommentInput
-        addComment={onAddComment}
-      />
-      <CommentsList
-        comments={threadDetail.comments}
-        authUser={authUser.id}
-        upVoteComment={onUpVoteComment}
-        downVoteComment={onDownVoteComment}
-        neutralVoteComment={onNeutralVoteComment}
-      />
+      <section className="detail-page__comments">
+        <CommentInput
+          addComment={onAddComment}
+        />
+        <CommentsList
+          comments={threadDetail.comments}
+          authUser={authUser.id}
+          upVoteComment={onUpVoteComment}
+          downVoteComment={onDownVoteComment}
+          neutralVoteComment={onNeutralVoteComment}
+        />
+      </section>
     </section>
   );
 }

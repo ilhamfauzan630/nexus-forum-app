@@ -61,7 +61,7 @@ function ThreadItem({
   };
 
   return (
-    <div
+    <article
       role="button"
       tabIndex={0}
       className="thread-item"
@@ -73,7 +73,7 @@ function ThreadItem({
       </div>
 
       <div className="thread-item__detail">
-        <header>
+        <header className="thread-item__header">
           <div className="thread-item__user-info">
             <p className="thread-item__user-name">{user.name}</p>
             <p className="thread-item__user-id">
@@ -85,7 +85,7 @@ function ThreadItem({
           <p className="thread-item__created-at">{postedAt(createdAt)}</p>
         </header>
 
-        <article>
+        <div className="thread-item__content">
           <p className="thread-item__category">
             #
             {category}
@@ -97,31 +97,41 @@ function ThreadItem({
             className="thread-item__body"
             dangerouslySetInnerHTML={{ __html: body }}
           />
-        </article>
+        </div>
 
         <div className="thread-item__footer">
-          <p>
-            <button type="button" aria-label="up vote" onClick={onUpVoteClick}>
+          <p className="thread-item__action">
+            <button
+              type="button"
+              className={isThreadUpVoted ? 'thread-item__action-button thread-item__action-button--active' : 'thread-item__action-button'}
+              aria-label="up vote"
+              onClick={onUpVoteClick}
+            >
               {isThreadUpVoted ? <FaThumbsUp /> : <FaRegThumbsUp />}
             </button>
             <span>{upVotesBy.length}</span>
           </p>
 
-          <p>
-            <button type="button" aria-label="down vote" onClick={onDownVoteClick}>
+          <p className="thread-item__action">
+            <button
+              type="button"
+              className={isThreadDownVoted ? 'thread-item__action-button thread-item__action-button--active' : 'thread-item__action-button'}
+              aria-label="down vote"
+              onClick={onDownVoteClick}
+            >
               {isThreadDownVoted ? <FaThumbsDown /> : <FaRegThumbsDown />}
             </button>
             <span>{downVotesBy.length}</span>
           </p>
 
-          <p>
+          <p className="thread-item__action thread-item__action--comment">
             <FaRegComment />
             {' '}
             {totalComments}
           </p>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

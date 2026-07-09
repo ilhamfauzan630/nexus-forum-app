@@ -8,6 +8,11 @@ import LeaderboardItem, {
 function LeaderboardsList({ leaderboards }) {
   return (
     <div className="leaderboards-list">
+      <div className="leaderboards-list__header">
+        <span>User</span>
+        <span>Score</span>
+      </div>
+
       {leaderboards.map((leaderboard, index) => (
         <LeaderboardItem
           key={leaderboard.user.id}

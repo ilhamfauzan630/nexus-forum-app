@@ -39,27 +39,40 @@ function CommentItem({
   };
 
   return (
-    <div className="comment-item">
-      <img src={owner.avatar} alt={owner.name} />
+    <article className="comment-item">
+      <img className="comment-item__avatar" src={owner.avatar} alt={owner.name} />
 
-      <div>
-        <p>{owner.name}</p>
-        <p>{content}</p>
-        <small>{createdAt}</small>
+      <div className="comment-item__content">
+        <header className="comment-item__header">
+          <p className="comment-item__name">{owner.name}</p>
+          <small className="comment-item__created-at">{createdAt}</small>
+        </header>
+
+        <p className="comment-item__body">{content}</p>
 
         <div className="comment-item__vote">
-          <button type="button" aria-label="up vote comment" onClick={onUpVoteClick}>
+          <button
+            type="button"
+            className={isCommentUpVoted ? 'comment-item__vote-button comment-item__vote-button--active' : 'comment-item__vote-button'}
+            aria-label="up vote comment"
+            onClick={onUpVoteClick}
+          >
             {isCommentUpVoted ? <FaThumbsUp /> : <FaRegThumbsUp />}
           </button>
           <span>{upVotesBy.length}</span>
 
-          <button type="button" aria-label="down vote comment" onClick={onDownVoteClick}>
+          <button
+            type="button"
+            className={isCommentDownVoted ? 'comment-item__vote-button comment-item__vote-button--active' : 'comment-item__vote-button'}
+            aria-label="down vote comment"
+            onClick={onDownVoteClick}
+          >
             {isCommentDownVoted ? <FaThumbsDown /> : <FaRegThumbsDown />}
           </button>
           <span>{downVotesBy.length}</span>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

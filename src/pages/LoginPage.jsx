@@ -16,9 +16,13 @@ function LoginPage() {
   return (
     <section className="login-page">
       <header className="login-page__hero">
-        <h1><IoEarthOutline /></h1>
+        <div className="auth-hero__content">
+          <h1><IoEarthOutline /></h1>
+          <p>Open Space</p>
+        </div>
       </header>
       <article className="login-page__main">
+        <p className="auth-page__eyebrow">Welcome back</p>
         <h2>
           See
           {' '}
@@ -30,7 +34,7 @@ function LoginPage() {
         </h2>
 
         <LoginInput login={onLogin} />
-        <p>
+        <p className="auth-page__switch">
           Don&apos;t have an account?
           {' '}
           <Link to="/register">Register</Link>

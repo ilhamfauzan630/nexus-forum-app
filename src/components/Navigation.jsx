@@ -7,12 +7,21 @@ function Navigation({ authUser, signOut }) {
 
   return (
     <div className="navigation">
-      <img src={avatar} alt={id} title={name} />
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/leaderboards">Leaderboards</Link>
-      </nav>
-      <button type="button" onClick={signOut}>Sign out</button>
+      <div className="navigation__inner">
+        <Link to="/" className="navigation__brand">
+          Open Space
+        </Link>
+
+        <nav className="navigation__links" aria-label="Primary navigation">
+          <Link to="/">Home</Link>
+          <Link to="/leaderboards">Leaderboards</Link>
+        </nav>
+
+        <div className="navigation__profile">
+          <img src={avatar} alt={id} title={name} />
+          <button type="button" onClick={signOut}>Sign out</button>
+        </div>
+      </div>
     </div>
   );
 }

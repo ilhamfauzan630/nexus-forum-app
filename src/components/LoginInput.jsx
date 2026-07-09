@@ -8,9 +8,9 @@ function LoginInput({ login }) {
 
   return (
     <form className="login-input">
-      <input type="email" value={email} onChange={onEmailChange} placeholder="Username" />
-      <input type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
-      <button type="button" onClick={() => login({ email, password })}>Login</button>
+      <input className="login-input__field" type="email" value={email} onChange={onEmailChange} placeholder="Username" />
+      <input className="login-input__field" type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
+      <button className="login-input__button" type="button" onClick={() => login({ email, password })}>Login</button>
     </form>
   );
 }

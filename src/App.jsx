@@ -35,7 +35,7 @@ function App() {
     return (
       <>
         <Loading />
-        <main>
+        <main className="auth-shell">
           <Routes>
             <Route path="/*" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
@@ -49,10 +49,10 @@ function App() {
     <>
       <Loading />
       <div className="app-container">
-        <header>
+        <header className="app-header">
           <Navigation authUser={authUser} signOut={onSignOut} />
         </header>
-        <main>
+        <main className="app-main">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path='/leaderboards' element={<LeaderboardsPage/>}/>

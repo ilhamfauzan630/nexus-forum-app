@@ -9,10 +9,10 @@ function RegisterInput({ register }) {
 
   return (
     <form className="register-input">
-      <input type="text" value={name} onChange={onNameChange} placeholder="Name" />
-      <input type="Email" value={email} onChange={onEmailChange} placeholder="Email" />
-      <input type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
-      <button type="button" onClick={() => register({ name, email, password })}>Register</button>
+      <input className="register-input__field" type="text" value={name} onChange={onNameChange} placeholder="Name" />
+      <input className="register-input__field" type="Email" value={email} onChange={onEmailChange} placeholder="Email" />
+      <input className="register-input__field" type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
+      <button className="register-input__button" type="button" onClick={() => register({ name, email, password })}>Register</button>
     </form>
   );
 }

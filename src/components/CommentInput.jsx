@@ -21,7 +21,10 @@ function CommentInput({ addComment }) {
 
   return (
     <div className="comment-input">
+      <p className="comment-input__title">Add your voice</p>
+
       <textarea
+        className="comment-input__textarea"
         placeholder="Write your comment..."
         value={content}
         onChange={onContentChange}
@@ -32,7 +35,7 @@ function CommentInput({ addComment }) {
         /320
       </p>
 
-      <button type="button" onClick={onAddComment}>
+      <button type="button" className="comment-input__button" onClick={onAddComment}>
         Add Comment
       </button>
     </div>

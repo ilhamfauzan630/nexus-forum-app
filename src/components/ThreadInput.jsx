@@ -36,8 +36,14 @@ function ThreadInput({ addThread }) {
 
   return (
     <div className="thread-input">
+      <div className="thread-input__header">
+        <p className="thread-input__eyebrow">Start a thread</p>
+        <h2>What is happening?</h2>
+      </div>
+
       <input
         type="text"
+        className="thread-input__field"
         placeholder="Thread title"
         value={title}
         onChange={onTitleChange}
@@ -45,18 +51,20 @@ function ThreadInput({ addThread }) {
 
       <input
         type="text"
+        className="thread-input__field"
         placeholder="Category"
         value={category}
         onChange={onCategoryChange}
       />
 
       <textarea
+        className="thread-input__textarea"
         placeholder="Write your thread..."
         value={body}
         onChange={onBodyChange}
       />
 
-      <button type="button" onClick={onAddThread}>
+      <button type="button" className="thread-input__button" onClick={onAddThread}>
         Create Thread
       </button>
     </div>

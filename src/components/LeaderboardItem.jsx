@@ -7,7 +7,7 @@ function LeaderboardItem({
   score,
 }) {
   return (
-    <div className="leaderboard-item">
+    <article className="leaderboard-item">
       <p className="leaderboard-item__rank">
         #
         {rank}
@@ -32,7 +32,7 @@ function LeaderboardItem({
       <p className="leaderboard-item__score">
         {score}
       </p>
-    </div>
+    </article>
   );
 }
 

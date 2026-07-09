@@ -17,7 +17,10 @@ function LeaderboardsPage() {
 
   return (
     <section className="leaderboards-page">
-      <h2>Leaderboards</h2>
+      <header className="leaderboards-page__header">
+        <p className="page-eyebrow">Top contributors</p>
+        <h1>Leaderboards</h1>
+      </header>
 
       <LeaderboardsList leaderboards={leaderboards} />
     </section>

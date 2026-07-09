@@ -27,7 +27,7 @@ function ThreadDetail({
 
   return (
     <section className="thread-detail">
-      <header>
+      <header className="thread-detail__header">
         <img src={owner.avatar} alt={owner.name} />
         <div className="thread-detail__user-info">
           <p className="thread-detail__user-name">{owner.name}</p>
@@ -38,7 +38,7 @@ function ThreadDetail({
         </div>
       </header>
 
-      <article>
+      <article className="thread-detail__content">
         <p className="thread-detail__category">
           #
           {category}
@@ -50,14 +50,24 @@ function ThreadDetail({
         />
       </article>
 
-      <footer>
+      <footer className="thread-detail__footer">
         <div className="thread-detail__vote">
-          <button type="button" aria-label="up vote" onClick={() => (isThreadUpVoted? neutralVoteThread(id) : upVoteThread(id))}>
+          <button
+            type="button"
+            className={isThreadUpVoted ? 'thread-detail__vote-button thread-detail__vote-button--active' : 'thread-detail__vote-button'}
+            aria-label="up vote"
+            onClick={() => (isThreadUpVoted? neutralVoteThread(id) : upVoteThread(id))}
+          >
             {isThreadUpVoted ? <FaThumbsUp /> : <FaRegThumbsUp />}
           </button>
           <span>{upVotesBy.length}</span>
 
-          <button type="button" aria-label="down vote" onClick={() => (isThreadDownVoted? neutralVoteThread(id) : downVoteThread(id))}>
+          <button
+            type="button"
+            className={isThreadDownVoted ? 'thread-detail__vote-button thread-detail__vote-button--active' : 'thread-detail__vote-button'}
+            aria-label="down vote"
+            onClick={() => (isThreadDownVoted? neutralVoteThread(id) : downVoteThread(id))}
+          >
             {isThreadDownVoted ? <FaThumbsDown /> : <FaRegThumbsDown />}
           </button>
           <span>{downVotesBy.length}</span>
