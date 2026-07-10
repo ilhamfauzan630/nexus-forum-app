@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import CategoryFilter from '../components/CategoryFilter';
 import ThreadInput from '../components/ThreadInput';
 import ThreadsList from '../components/ThreadsList';
 
@@ -17,6 +18,7 @@ import {
 
 function HomePage() {
   const dispatch = useDispatch();
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const {
     threads = [],
@@ -48,7 +50,40 @@ function HomePage() {
     dispatch(asyncNeutralVoteThread(threadId));
   }
 
-  const threadList = threads.map((thread) => ({
+  function onSelectCategory(category) {
+    setSelectedCategory((currentCategory) => (
+      currentCategory === category ? '' : category
+    ));
+  }
+
+  const categories = useMemo(() => {
+    const categoryCounter = new Map();
+
+    threads.forEach((thread) => {
+      const category = thread.category || '';
+      if (!category.trim()) {
+        return;
+      }
+
+      categoryCounter.set(category, (categoryCounter.get(category) || 0) + 1);
+    });
+
+    return Array.from(categoryCounter, ([name, count]) => ({
+      name,
+      count,
+    })).sort((firstCategory, secondCategory) => (
+      secondCategory.count - firstCategory.count
+      || firstCategory.name.localeCompare(secondCategory.name)
+    ));
+  }, [threads]);
+
+  const visibleThreads = useMemo(() => (
+    selectedCategory
+      ? threads.filter((thread) => thread.category === selectedCategory)
+      : threads
+  ), [selectedCategory, threads]);
+
+  const threadList = visibleThreads.map((thread) => ({
     ...thread,
     upVotesBy: thread.upVotesBy,
     downVotesBy: thread.downVotesBy,
@@ -68,6 +103,12 @@ function HomePage() {
       </header>
 
       <ThreadInput addThread={onAddThread} />
+
+      <CategoryFilter
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onSelectCategory={onSelectCategory}
+      />
 
       <ThreadsList
         threads={threadList}
