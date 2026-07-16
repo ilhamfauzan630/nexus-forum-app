@@ -10,7 +10,9 @@
     "lint": "eslint ./src",
     "test": "vitest",
     "e2e": "cypress run",
-    "ci:test": "vitest --no-watch && start-server-and-test dev http-get://0.0.0.0:5173 e2e"
+    "ci:test": "vitest --no-watch && start-server-and-test dev http-get://0.0.0.0:5173 e2e",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@dimasmds/react-redux-loading-bar": "^5.0.10",
@@ -41,6 +43,9 @@
     "jsdom": "^26.1.0",
     "start-server-and-test": "^3.0.11",
     "vite": "^7.1.7",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "storybook": "^10.5.0",
+    "@storybook/react-vite": "^10.5.0",
+    "eslint-plugin-storybook": "^10.5.0"
   }
 }
