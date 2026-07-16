@@ -1,4 +1,3 @@
-import React from 'react';
 import LeaderboardsList from './../components/LeaderboardsList';
 
 const meta = {
