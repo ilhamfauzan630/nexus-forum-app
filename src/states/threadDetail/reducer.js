@@ -15,12 +15,6 @@ function threadDetailReducer(threadDetail = null, action = {}) {
       comments: [...threadDetail.comments, action.payload.comment],
     };
 
-  case ThreadDetailActionType.RECEIVE_USERS:
-    return {
-      ...threadDetail,
-      users: action.payload.users,
-    };
-
   case ThreadDetailActionType.CLEAR_COMMENTS:
     return {
       ...threadDetail,
