@@ -9,7 +9,7 @@ function Navigation({ authUser, signOut }) {
     <div className="navigation">
       <div className="navigation__inner">
         <Link to="/" className="navigation__brand">
-          Nexus Forum app
+          Nexus Forum
         </Link>
 
         <nav className="navigation__links" aria-label="Primary navigation">
